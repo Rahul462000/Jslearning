@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai aur code</title>
+  </head>
+  <body style="background-color: #212121; color: #ffff"></body>
+
+  <script>
+    // how to create a element
+    const div = document.createElement("div");
+    console.log(div);
+
+    // adding properties in the created element
+
+    // 1. giving className to the created element
+    div.className = "main";
+
+    // 2. giving id to the created element
+    div.id = Math.round(Math.random() * 10);
+
+    // 3.setting custom attributes to the created element
+    // here "title" property key value is "generated title"
+    div.setAttribute("title", "generated title");
+
+    // 4. giving style to the generated element
+    div.style.backgroundColor = "green";
+    div.style.padding = "12px";
+
+    // 5.providing text to the generated element simple method
+    // div.innerText = "chai aur code";
+
+    // NOTE: beside from setAttribute all other properties overwrites the values
+
+    // prefreed method for adding values to generated element
+    const addText = document.createTextNode("I am created from js");
+    // adding the createdText node
+    div.appendChild(addText);
+
+    // attaching the created element to the document
+    document.body.appendChild(div);
+  </script>
+</html>

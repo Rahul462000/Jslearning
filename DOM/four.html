@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM | Chai aur code</title>
+  </head>
+  <body style="background-color: #212121; color: #ffff">
+    <ul class="language">
+      <li>Javascript</li>
+    </ul>
+  </body>
+  <script>
+    // this method is not good for a large number of data
+    // adding new elements
+    function addLanguage(lanName) {
+      // creted new element
+      const li = document.createElement("li");
+      // adding value inside list "li"
+      li.innerHTML = `${lanName}`;
+      // attaching the created element to main html body
+      document.querySelector(".language").appendChild(li);
+    }
+    addLanguage("python");
+    addLanguage("typescript");
+
+    // a better optimsized approach to add data with js in html DOM
+
+    function addOptiLanguage(langName) {
+      // create element
+      const li = document.createElement("li");
+      // appending data with ceateing a node
+      li.appendChild(document.createTextNode(langName));
+      document.querySelector(".language").appendChild(li);
+    }
+    addOptiLanguage("golang");
+
+    // edditing the created values
+    // select value first
+    // here python is selected the second value with nth-child() method
+    const secondLanguage = document.querySelector("li:nth-child(2)");
+    // now change the selected value as your wish/ desire changes as required
+    const newLI = document.createElement("li");
+    // textContent and innerHtml havw few differences only
+    newLI.textContent = "Mojo";
+    secondLanguage.replaceWith(newLI);
+    // //////////////////////////
+
+    // editing the created elemtn value with something other
+    const firstLanguge = document.querySelector("li:nth-child(1)");
+    firstLanguge.outerHTML = "<li>Typescripe</li>";
+    //////////
+
+    // removing the creted value
+    const lastLanguage = document.querySelector("li:last-child");
+    lastLanguage.remove();
+  </script>
+</html>

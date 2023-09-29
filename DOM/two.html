@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom | chai aur code</title>
+  </head>
+  <body style="background-color: #212121; color: #ffff">
+    <div class="parent">
+      <div class="day">Monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thursday</div>
+    </div>
+  </body>
+  <script>
+    // selecting parent element and find out what is inside of it
+    const parentElement = document.querySelector(".parent");
+    console.log(parentElement);
+    // how many childrent inside the parent element
+    console.log(parentElement.children);
+    // accessing the ekements
+    console.log(parentElement.children[0].innerHTML);
+
+    // classic for loop
+    for (let i = 0; i < parentElement.children.length; i++) {
+      console.log(parentElement.children[i].innerHTML);
+    }
+
+    // styling of the elements
+    parentElement.children[0].style.color = "red";
+    parentElement.children[1].style.color = "orange";
+
+    // some properties in the parent element
+    // moving from parent to child element
+    console.log(parentElement.firstElementChild);
+    console.log(parentElement.lastElementChild);
+
+    // movig from child to parent element
+    const dayOne = document.querySelector(".day");
+    console.log(dayOne);
+    // direct jumping to the parent without traversing the tree structure
+    console.log(dayOne.parentElement);
+    // to get next element inside of parent element
+    console.log(dayOne.nextElementSibling);
+    // childNodes is a complex tree structure
+    console.log("NODES:", parentElement.childNodes);
+  </script>
+</html>
