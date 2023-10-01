@@ -25,6 +25,13 @@
     color: rgb(241, 241, 241);
 }
 
+#guide {
+    font-size: 35px;
+    margin-left: 90px;
+    margin-top: 20px;
+    color: rgb(241, 241, 241);
+}
+
 button {
     width: 150px;
     height: 35px;

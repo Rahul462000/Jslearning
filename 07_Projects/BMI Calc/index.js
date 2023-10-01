@@ -1,5 +1,6 @@
 // selecting form first
 const form = document.querySelector("form");
+const textguide = document.querySelector("#guide");
 
 // stopping default submittion of the form
 // here we take the input value of placeholder after button is cliked not taken before btn is licked
@@ -23,7 +24,14 @@ form.addEventListener("submit", function (e) {
   } else {
     // formula for calculating BMI with fixed value upto two decimal points
     const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    let message = "";
     // to show the result
-    results.innerHTML = `<span>${bmi}</span>`;
+    if (parseInt(bmi) < 18.6) {
+      results.innerHTML = `${bmi} you are underwight`;
+    } else if (parseInt(bmi) > 18.6 && parseInt(bmi) <= 24.9) {
+      results.innerHTML = `${bmi} you are normal`;
+    } else {
+      results.innerHTML = `${bmi} you are  overwight`;
+    }
   }
 });
