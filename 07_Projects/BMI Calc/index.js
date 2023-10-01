@@ -15,7 +15,15 @@ form.addEventListener("submit", function (e) {
   //   adding checks because the formula for BMI can destroy code
   // here isNan(height) will check for not a number presence in the input
   if (height === "" || height < 0 || isNaN(height)) {
-    results.innerHTML = `Please enter a valid height`;
+    results.innerHTML = `Please enter a valid height ${height}`;
   }
   //   results.innerHTML = ` ${height}`;
+  else if (weight === "" || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `Please enter a valid weight ${weight}`;
+  } else {
+    // formula for calculating BMI with fixed value upto two decimal points
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    // to show the result
+    results.innerHTML = `<span>${bmi}</span>`;
+  }
 });
