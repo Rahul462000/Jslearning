@@ -24,7 +24,6 @@ form.addEventListener("submit", function (e) {
   } else {
     // formula for calculating BMI with fixed value upto two decimal points
     const bmi = (weight / ((height * height) / 10000)).toFixed(2);
-    let message = "";
     // to show the result
     if (parseInt(bmi) < 18.6) {
       results.innerHTML = `${bmi} you are underwight`;
