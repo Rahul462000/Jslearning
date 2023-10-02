@@ -84,13 +84,13 @@
     // jQuery  -on old time
 
     // best approach
-    document.getElementById("owl").addEventListener(
-      "click",
-      function (e) {
-        console.log(e);
-      },
-      false
-    );
+    // document.getElementById("owl").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log(e);
+    //   },
+    //   false
+    // );
 
     // 2. event propogation
 
@@ -101,15 +101,15 @@
     // this is called Bubbling (from inside to outside)
 
     // this is ul clicked messages event
-    document.getElementById("images").addEventListener("click", function (e) {
-      console.log("clicked inside the ul");
-    });
+    // document.getElementById("images").addEventListener("click", function (e) {
+    //   console.log("clicked inside the ul");
+    // });
     // this is li  clicked messages event that is owl id
-    document.getElementById("owl").addEventListener("click", function (e) {
-      console.log("owl clicked");
-      //   if want to separate outer and inner elements for some reasons
-      e.stopPropagation();
-    });
+    // document.getElementById("owl").addEventListener("click", function (e) {
+    //   console.log("owl clicked");
+    //   //   if want to separate outer and inner elements for some reasons
+    //   e.stopPropagation();
+    // });
 
     // NOTE: event capturing here when behavior is true
     // their is another method called capturing
@@ -138,5 +138,21 @@
     //   e.stopPropagation();
     //   console.log("google clicked");
     // });
+
+    // target the images panel and when clicked images vanishes
+    document.querySelector("#images").addEventListener("click", function (e) {
+      // to select the parent of target image
+      console.log(e.target.parentNode);
+      //   this remove approach have a problem because we are removing the parent here which is ul
+      // hence if li is clicked all will deleted so we use some checks with if else
+      // to remove the parent li
+      let removeIt = e.target.parentNode;
+      //   removeIt.remove();
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG") {
+        console.log(e.target.id);
+        removeIt.parentNode.removeChild(removeIt);
+      }
+    });
   </script>
 </html>
