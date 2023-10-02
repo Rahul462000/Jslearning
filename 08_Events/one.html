@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htnml Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a
+            style="color: aliceblue"
+            href="https://google.com"
+            target="_blank"
+            id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // javscript sequencial run language
+    // here the events are run on sequencial basics only but their are also some exemptial cases
+
+    // to study by own
+    // type, timestamp, defaultPrevented
+    // target,toElement, srcElement, currentTarget
+    // from interview point of view
+    // clientX,clientY,screenY,screenX
+    // interesting
+    // altKey,ctrlKey,shiftKey,keyCode
+
+    // // 1. this is a good aproach then adding onClick direct into the html but we have some problems here also
+    // it doesn't provide you with best performance/features
+
+    // document.getElementById("owl").onclick = function () {
+    //   alert("owl clicked");
+    // };
+
+    // one more attachEvent()  --> old one tiime one internetexplorer
+    // jQuery  -on old time
+
+    // best approach
+    document.getElementById("owl").addEventListener(
+      "click",
+      function (e) {
+        console.log(e);
+      },
+      false
+    );
+
+    // 2. event propogation
+
+    // NOTE: event bubling here when default behavior is false
+    // it runs from inside to outside like owl>>>li>>ul
+    // their for first owl is clicked and then the ul is clicked
+    // first innerElement is clicked that is images li then ul
+    // this is called Bubbling (from inside to outside)
+
+    // this is ul clicked messages event
+    document.getElementById("images").addEventListener("click", function (e) {
+      console.log("clicked inside the ul");
+    });
+    // this is li  clicked messages event that is owl id
+    document.getElementById("owl").addEventListener("click", function (e) {
+      console.log("owl clicked");
+      //   if want to separate outer and inner elements for some reasons
+      e.stopPropagation();
+    });
+
+    // NOTE: event capturing here when behavior is true
+    // their is another method called capturing
+    // when  the default value of event listeners is false we make it true it works from top to down approach
+    // outside to inside approach
+
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("clicked inside the ul");
+    //   },
+    //   true
+    // );
+
+    // document.getElementById("owl").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("owl clicked");
+    //   },
+    //   true
+    // );
+
+    // preventDefault(); method in event listener
+    // document.getElementById("google").addEventListener("click", function (e) {
+    //   e.preventDefault();
+    //   e.stopPropagation();
+    //   console.log("google clicked");
+    // });
+  </script>
+</html>

@@ -30,6 +30,7 @@ let playGame = true;
 if (playGame) {
   submit.addEventListener("click", function (e) {
     e.preventDefault();
+    // user inout value is stored here
     const guess = parseInt(userInput.value);
     console.log(guess);
     validateGuess(guess);
@@ -50,7 +51,7 @@ function validateGuess(guess) {
     // pushing the number into the array
     prevGuess.push(guess);
     // if attempt is last or not
-    if (numGuess === 11) {
+    if (numGuess === 10) {
       displayGuess(guess);
       displayMessage(`Game over. Random number was ${randomNumber}`);
       //   end the game
@@ -115,7 +116,7 @@ function newGame() {
     prevGuess = [];
     numGuess = 1;
     guessSlot.innerHTML = "";
-    remaining.innerHTML = `${11 - numGuess}`;
+    remaining.innerHTML = `${10 - numGuess}`;
     userInput.removeAttribute("disabled");
     startOver.removeChild(p);
     playGame = true;
