@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: rgb(63, 62, 62)">
+    <h1>Chia aur code</h1>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // setTimeout()
+    // handler and timeout time in settimeout() function
+    // setTimeout() behaves like it will perform some tasks after a certain time
+    // ////1..
+    setTimeout(function () {
+      console.log("hello kaise hai app");
+    }, 2000);
+
+    // ////2......
+    const sayName = function () {
+      console.log("singh");
+    };
+    const changeText = function () {
+      document.querySelector("h1").innerHTML = "hello sir morning";
+    };
+    // to give reference of this function in setTimeout()
+    setTimeout(sayName, 3000);
+    const chageMe = setTimeout(changeText, 5000);
+
+    // how to stop the setTimeout function
+    // clearTimeout(chageMe);
+    // but we will apply stop facility on a button
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearTimeout(chageMe);
+      console.log("stopped");
+    });
+  </script>
+</html>
