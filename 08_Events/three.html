@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: rgb(63, 62, 62)">
+    <h1>Chia aur javascript</h1>
+    <button id="start">start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // this is setInterval() method in which opration will be executed till stop is propvided
+    // ///1 ..
+    let firstInterval;
+
+    const sayDate = function () {
+      console.log("rahul😁", Date.now());
+    };
+    document.querySelector("#start").addEventListener("click", function () {
+      firstInterval = setInterval(sayDate, 1000);
+    });
+
+    // 2..
+    // we can also provide som another paremeters in callin method
+    const satDate = function (str) {
+      // console.log(str, Date.now());
+    };
+    setInterval(satDate, 3000, "hello world");
+
+    // for starting the setInterval() method
+
+    // for stopping the setInterval()
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearInterval(firstInterval);
+      console.log("stopped");
+    });
+  </script>
+</html>
