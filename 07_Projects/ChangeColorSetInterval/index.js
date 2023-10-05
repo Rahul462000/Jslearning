@@ -1,5 +1,6 @@
 // generate a random color
 
+// this is used to generate a random color in hex decial notation
 const randomcolor = function () {
   // hex values in colors
   const hex = "0123456789ABCDEF";
