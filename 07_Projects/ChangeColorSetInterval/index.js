@@ -14,11 +14,15 @@ const randomcolor = function () {
 // checking the color
 console.log(randomcolor());
 
+// the interviewId when called again and again is not so good so we will null its value after stopage
 let intervalId;
 // to start the change in the backgrouond color
 const startChangingColor = function () {
   // to make the change in loop
-  intervalId = setInterval(changeBgColor, 1000);
+  //   when interviewId become null we need to check or safety check
+  if (!intervalId) {
+    intervalId = setInterval(changeBgColor, 1000);
+  }
   console.log("started");
   // accessing the body
   function changeBgColor() {
@@ -28,6 +32,8 @@ const startChangingColor = function () {
 const stopChangingColor = function () {
   console.log("stopped");
   clearInterval(intervalId);
+  //   flushOut the intervalId to make our memory free a little bit
+  intervalId = null;
 };
 
 document.querySelector("#start").addEventListener("click", startChangingColor);
