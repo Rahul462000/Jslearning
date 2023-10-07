@@ -6,13 +6,13 @@
     <title>XMLHttpRequest</title>
   </head>
   <body style="background-color: #212121">
-    <img id="user_image" src="" alt="user-image" />
+    <img id="user_image" src="images" alt="user-image" />
     <h2></h2>
     <button id="button">Click Me</button>
   </body>
   <script>
     const text1 = document.querySelector("h2");
-    const images = document.querySelector("#users_images");
+    const imag = document.querySelector("#users_images");
     let requestUrl = "https://api.github.com/users/Rahul462000";
 
     const infoButton = function () {
@@ -23,8 +23,9 @@
         if (xhr.readyState === 4) {
           const data = JSON.parse(this.responseText);
           console.log(data);
-          text1.innerHTML = `${data.followers}`;
-          images.setAttribute("src", `${data.avatar_url}`);
+          text1.innerHTML = `${data.public_repos}`;
+          //
+          imag.src.replace("images", `${data.avatar_url}`);
         }
       };
       xhr.send();
