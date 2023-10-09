@@ -5,7 +5,7 @@ const promiseOne = new Promise(function (resolve, reject) {
   // Do an asynchronous/async task
   // DB calls, cryptoTasks, cryptography, network
   setTimeout(function () {
-    console.log("async task completed");
+    console.log("async 1 task completed");
     //1b. connected resolve here with .then
     resolve();
   }, 1000);
@@ -14,7 +14,7 @@ const promiseOne = new Promise(function (resolve, reject) {
 //1a. consuming the promise here
 // this is connected with resolve
 promiseOne.then(function () {
-  console.log("promise consume");
+  console.log("promise 1 consume");
 });
 
 // 2. PromiseTwo
