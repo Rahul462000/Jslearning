@@ -7,15 +7,15 @@ const users = {
   signedIn: true,
   getUserDetails: function () {
     // this is inside the current context of the code
-    // console.log(this);
-    // console.log("Got user details from DB");
-    // console.log(`UserName is:${this.username}`);
+    console.log(this);
+    console.log("Got user details from DB");
+    console.log(`UserName is:${this.username}`);
   },
 };
-// console.log(users.username);
-// console.log(users.getUserDetails());
+console.log(users.username); // singh
+console.log(users.getUserDetails());
 // this in global scope/context of the code above
-// console.log(this);
+console.log(this); // out of scope this will not be called
 
 //2. Constructure funciton
 // const promiseOne = new Promise();
@@ -25,6 +25,7 @@ const users = {
 function User(username, loginCount, issLoggedIn) {
   // this.username is variable and rhs value is pass value
   // these are all properties
+  // this is used to make sure that we are taking value from object literal name User
   this.username = username;
   this.loginCount = loginCount;
   this.issLoggedIn = issLoggedIn;
@@ -43,6 +44,8 @@ const userOne = new User("Rahul", 12, true);
 const userTwo = new User("jslearning", 11, false);
 console.log(userOne instanceof User); // instanceof User will return its presence in true/false
 console.log(userOne.constructor); //return reference of its own
-// console.log(userTwo);
+console.log(userOne);
+console.log(userOne.grretings()); // to run inside method call of userOne
+console.log(userTwo.grretings());
 
 //
