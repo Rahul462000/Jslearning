@@ -18,7 +18,7 @@ class User {
 }
 
 const chai = new User("chai", "chai@gmail.com", 123);
-//1. password encryotion method is called
+//1. password encryption method is called
 console.log(chai.encryptPassword());
 //2. username change method is called
 console.log(chai.changeUsername());
