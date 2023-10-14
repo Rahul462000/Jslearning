@@ -7,6 +7,7 @@ const User = {
   },
 
   set email(value) {
+    const chai = new User("cahi@gmail.com", 123);
     this._email = value;
   },
 };
