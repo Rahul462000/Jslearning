@@ -6,6 +6,8 @@
     <title>CLoser aur chai</title>
   </head>
   <body style="background-color: #313131">
+    <button id="orange">orange</button>
+    <button id="green">Green</button>
     <script>
       //   function init() {
       //     let name = "Mozilla";
@@ -17,21 +19,52 @@
       //   init();
 
       //   this is also calles lexical scopping
-      function outer() {
-        let username = "singh";
-        function inner() {
-          let secret = "my123";
-          console.log("Inner", username);
-        }
-        function innerTwo() {
-          console.log("innerTwo", username);
-          console.log("innerTwo", secret);
-        }
-        inner();
-        innerTwo();
+      // function outer() {
+      //   let username = "singh";
+      //   function inner() {
+      //     let secret = "my123";
+      //     console.log("Inner", username);
+      //   }
+      //   function innerTwo() {
+      //     console.log("innerTwo", username);
+      //     console.log("innerTwo", secret);
+      //   }
+      //   inner();
+      //   innerTwo();
+      // }
+      // outer();
+      // console.log("TOO OUTER", username);()
+
+      // this is closure
+      // function makeFunc() {
+      //   const name = "Mozilla";
+      //   function displayName() {
+      //     console.log(name);
+      //   }
+      //   // here the complete lexical function scopping will be return
+      //   return displayName;
+      // }
+
+      // const myFunc = makeFunc();
+      // myFunc();
+    </script>
+    <script>
+      // document.getElementById("orange").onclick = function () {
+      //   document.body.style.backgroundColor = `orange`;
+      // };
+      // document.getElementById("green").onclick = function () {
+      //   document.body.style.backgroundColor = `green`;
+      // };
+
+      function clickHandler(color) {
+        // document.body.style.backgroundColor = `${color}`;
+        return function () {
+          document.body.style.backgroundColor = `${color}`;
+        };
       }
-      outer();
-      console.log("TOO OUTER", username);
+
+      document.getElementById("orange").onclick = clickHandler("orange");
+      document.getElementById("green").onclick = clickHandler("green");
     </script>
   </body>
 </html>
